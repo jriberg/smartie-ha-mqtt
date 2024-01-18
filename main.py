@@ -80,6 +80,7 @@ def run():
     if len(cucumber) < 1:
         try:
             cucumber = load_last()
+            write_to_smartie(cucumber['msg'])
         except Exception as e:
             print("Couldn't load cucumber from file")
     client = connect_mqtt()
