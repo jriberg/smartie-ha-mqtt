@@ -17,3 +17,10 @@ python3 -m venv /opt/smartie-mqtt
 . /opt/smartie-mqtt/bin/activate
 pip3 install -r requirements.py
 ```
+
+```sh
+# Setup the config
+
+cp config.py{.example,}
+# Add your variables to the config file
+```
