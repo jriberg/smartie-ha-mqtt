@@ -51,11 +51,6 @@ def subscribe(client: mqc):
         global cucumber
         topic = msg.topic
         data = msg.payload.decode().split(";")
-        if len(cucumber) < 1:
-            try:
-                cucumber = load_last()
-            except Exception as e:
-                print("Couldn't load cucumber from file")
         if DEBUG:
             print(f'Received this a message from {topic}')
             print(f'lenght: {len(data)}, content: {data}')
@@ -81,6 +76,12 @@ def subscribe(client: mqc):
     client.on_message = on_message
 
 def run():
+    global cucumber
+    if len(cucumber) < 1:
+        try:
+            cucumber = load_last()
+        except Exception as e:
+            print("Couldn't load cucumber from file")
     client = connect_mqtt()
     subscribe(client)
     client.loop_forever()
