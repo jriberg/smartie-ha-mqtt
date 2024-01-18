@@ -24,3 +24,9 @@ pip3 install -r requirements.py
 cp config.py{.example,}
 # Add your variables to the config file
 ```
+```
+The messages via MQTT are expacted to be semicolon separated. 
+So far implemented
+screen;(on|off)
+msg;line1;line2
+```
